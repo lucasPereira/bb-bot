@@ -15,13 +15,15 @@ public class FabricaSelenium {
 	}
 
 	private WebDriver construirWebDriver() {
+		System.out.println(System.getProperty("os.name"));
+		System.out.println(System.getProperty("os.name"));
 		Boolean mac = System.getProperty("os.name").contains("Mac");
 		Boolean linux = System.getProperty("os.name").equals("Linux");
 		Boolean arquitetura64 = System.getProperty("os.arch").equals("amd64");
 		if (linux && arquitetura64) {
 			return construirChromeParaLinux64();
 		}
-		if (mac && arquitetura64) {
+		if (mac) {
 			return construirChromeParaMac64();
 		}
 		throw new RuntimeException("Ambiente não suportado");

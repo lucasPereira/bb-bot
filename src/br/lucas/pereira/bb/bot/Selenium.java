@@ -26,17 +26,14 @@ public class Selenium {
 	}
 
 	public void clicar(String seletor) {
-		System.out.println("[Clicou] " + seletor);
 		clicarComEspera(seletor);
 	}
 
 	public void digitar(String texto, String seletor) {
-		System.out.println("[Digitou] " + texto + " em " + seletor);
 		obter(seletor).sendKeys(texto);
 	}
 
 	public void clicarNoCentro(String seletor) {
-		System.out.println("[Clicou com offset] " + seletor);
 		WebElement elemento = obter(seletor);
 		new Actions(driver).moveToElement(elemento).click().build().perform();
 	}
